@@ -20,6 +20,8 @@ public class stockMarket {
         double AAPL = 308.91;
         int sharesAAPL = 0;
 
+        // ADD one or 2 more stocks
+
         // introduction
         System.out.println("======");
         System.out.println("STOCKS");
@@ -38,6 +40,7 @@ public class stockMarket {
         System.out.println("    - sell the shares you own");
         System.out.println("    - skip to the next day");
         System.out.println("    - in any primary input field, type 'exit' to exit the game");
+        System.out.println("\n");
 
         System.out.println("Goal: ");
         System.out.println("Your goal is to make as much $$$$ as you can.");
@@ -48,8 +51,12 @@ public class stockMarket {
         System.out.print("What is your name: ");
         String name = scanner.nextLine();
 
+        System.out.println("\n");
+
         System.out.printf("Hi %s%n", name);
+        System.out.println("\n");
         System.out.printf("%s, if you would like to play, press any key and if not, press 'q'.%n", name);
+        System.out.println("\n");
         System.out.print("Your choice: ");
         String playOrNot = scanner.nextLine();
 
@@ -239,7 +246,7 @@ public class stockMarket {
                             int shareSell2 = scanner.nextInt();
                             scanner.nextLine();
                             // sell NVDA
-                            if (stockSell2.equalsIgnoreCase("NVDA") && sharesNVDA >= shareSell2) {
+                            if (stockSell2.equalsIgnoreCase("NVDA") && shareSell2 > 0 && sharesNVDA >= shareSell2) {
                                 double returnValue = shareSell2 * NVDA;
                                 sharesNVDA -= shareSell2;
                                 cash += returnValue;
@@ -248,7 +255,7 @@ public class stockMarket {
                                 break;
                             }
                             // sell AAPL
-                            else if (stockSell2.equalsIgnoreCase("AAPL") && sharesAAPL >= shareSell2) {
+                            else if (stockSell2.equalsIgnoreCase("AAPL") && shareSell2 > 0 && sharesAAPL >= shareSell2) {
                                 double returnValue = shareSell2 * AAPL;
                                 sharesAAPL -= shareSell2;
                                 cash += returnValue;
@@ -258,11 +265,12 @@ public class stockMarket {
                             }
                             else {
                                 System.out.printf("You don't own that many shares of %s%n", stockSell2);
+                                continue;
                             }
                         }
                         else {
                             System.out.println("Enter a valid stock to sell!!");
-                            break;
+                            continue;
                         }
                     }
                     break;
@@ -381,7 +389,7 @@ public class stockMarket {
                             int shareSell3 = scanner.nextInt();
                             scanner.nextLine();
                             // sell NVDA
-                            if (stockSell3.equalsIgnoreCase("NVDA") && sharesNVDA >= shareSell3) {
+                            if (stockSell3.equalsIgnoreCase("NVDA") && shareSell3 > 0 && sharesNVDA >= shareSell3) { // fixed the input error for sell
                                 double returnValue = shareSell3 * NVDA;
                                 sharesNVDA -= shareSell3;
                                 cash += returnValue;
@@ -390,7 +398,7 @@ public class stockMarket {
                                 break;
                             }
                             // sell AAPL
-                            else if (stockSell3.equalsIgnoreCase("AAPL") && sharesAAPL >= shareSell3) {
+                            else if (stockSell3.equalsIgnoreCase("AAPL") && shareSell3 > 0 && sharesAAPL >= shareSell3) {
                                 double returnValue = shareSell3 * AAPL;
                                 sharesAAPL -= shareSell3;
                                 cash += returnValue;
@@ -399,11 +407,13 @@ public class stockMarket {
                                 break;
                             }
                             else {
-                                System.out.printf("You don't own that many shares of %s", stockSell3);
+                                System.out.printf("You don't own that many shares of %s%n", stockSell3);
+                                continue;
                             }
                         }
                         else {
                             System.out.println("Enter a valid stock to sell!!");
+                            continue;
                         }
                     }
                     break;
@@ -498,7 +508,7 @@ public class stockMarket {
                         int shareSell4 = scanner.nextInt();
                         scanner.nextLine();
                         // sell NVDA
-                        if (stockSell4.equalsIgnoreCase("NVDA") && sharesNVDA >= shareSell4) {
+                        if (stockSell4.equalsIgnoreCase("NVDA") && shareSell4 > 0 && sharesNVDA >= shareSell4) {
                             double returnValue = shareSell4 * NVDA;
                             sharesNVDA -= shareSell4;
                             cash += returnValue;
@@ -507,7 +517,7 @@ public class stockMarket {
                             break;
                         }
                         // sell AAPL
-                        else if (stockSell4.equalsIgnoreCase("AAPL") && sharesAAPL >= shareSell4) {
+                        else if (stockSell4.equalsIgnoreCase("AAPL") && shareSell4 > 0 && sharesAAPL >= shareSell4) {
                             double returnValue = shareSell4 * AAPL;
                             sharesAAPL -= shareSell4;
                             cash += returnValue;
@@ -516,11 +526,13 @@ public class stockMarket {
                             break;
                         }
                         else {
-                            System.out.printf("You don't own that many shares of %s", stockSell4);
+                            System.out.printf("You don't own that many shares of %s%n", stockSell4);
+                            continue;
                         }
                     }
                     else {
                         System.out.println("Enter a valid stock to sell!!");
+                        continue;
                     }
                 }
                 break;
@@ -541,7 +553,7 @@ public class stockMarket {
         String stockDay5 = "";
     
         System.out.println("==========");
-        System.out.println("  Day 4");
+        System.out.println("  Day 5");
         System.out.println("==========");
     
         System.out.println("\n");
@@ -612,7 +624,7 @@ public class stockMarket {
                         int shareSell5 = scanner.nextInt();
                         scanner.nextLine();
                         // sell NVDA
-                        if (stockSell5.equalsIgnoreCase("NVDA") && sharesNVDA >= shareSell5) {
+                        if (stockSell5.equalsIgnoreCase("NVDA") && shareSell5 > 0 && sharesNVDA >= shareSell5) {
                             double returnValue = shareSell5 * NVDA;
                             sharesNVDA -= shareSell5;
                             cash += returnValue;
@@ -621,7 +633,7 @@ public class stockMarket {
                             break;
                         }
                         // sell AAPL
-                        else if (stockSell5.equalsIgnoreCase("AAPL") && sharesAAPL >= shareSell5) {
+                        else if (stockSell5.equalsIgnoreCase("AAPL") && shareSell5 > 0 && sharesAAPL >= shareSell5) {
                             double returnValue = shareSell5 * AAPL;
                             sharesAAPL -= shareSell5;
                             cash += returnValue;
@@ -630,11 +642,13 @@ public class stockMarket {
                             break;
                         }
                         else {
-                            System.out.printf("You don't own that many shares of %s", stockSell5);
+                            System.out.printf("You don't own that many shares of %s%n", stockSell5);
+                            continue;
                         }
                     }
                     else {
                         System.out.println("Enter a valid stock to sell!!");
+                        continue;
                     }
                 }
                 break;
@@ -650,5 +664,15 @@ public class stockMarket {
                 System.out.println("Enter a valid choice!!");
             }
         }
+
+        // final summary of the playa
+        /*
+        profit calculation here (if in +, then say profit in summary and if in -, say loss), find a cool format for a summary table, and put scanner checks 
+        (so the input can deal with wrong data types)
+        */
+
+        System.out.println("Your trading journey comes to an end (for now). ");
+        System.out.println("Here are your stats: ");
+        
     }
 }
