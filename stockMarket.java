@@ -264,6 +264,29 @@ public class stockMarket {
                     System.out.println("Enter a valid choice!!");
                 }
             }
+            // day 3
+            String stockday3 = "";
+        
+            System.out.println("==========");
+            System.out.println("  Day 3");
+            System.out.println("==========");
+        
+            System.out.println("\n");
+        
+            // main HUD
+            System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
+            System.out.printf("AAPL : %.2f | Shares owned: : %d%n", AAPL, sharesAAPL);
+            System.out.println("------------------------------");
+            System.out.printf("Cash : %.2f%n", cash)
+        
+            System.out.println("\n");
+        
+            // stocck fluctuations
+            NVDA = NVDA * randomChange;
+            
+            // random event 
+            
+
         }
     }
 }
