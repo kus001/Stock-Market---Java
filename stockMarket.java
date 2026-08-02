@@ -262,6 +262,7 @@ public class stockMarket {
                         }
                         else {
                             System.out.println("Enter a valid stock to sell!!");
+                            break;
                         }
                     }
                     break;
