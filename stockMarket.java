@@ -2,7 +2,7 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class stockMarket {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         // initialize scanner and random
         Random random = new Random();
         Scanner scanner = new Scanner(System.in);
@@ -28,7 +28,8 @@ public class stockMarket {
 
         System.out.println("Welcome to the STOCK MARKET simulator");
         System.out.println("======");
-
+        Thread.sleep(2000);
+        
         // instructions
         System.out.println("How to play:");
         System.out.println("- you start with $1000 cash");
@@ -45,6 +46,19 @@ public class stockMarket {
         System.out.print("What is your name: ");
         String name = scanner.nextLine();
 
-        System.out.printf("Hi %s", name);
+        System.out.printf("Hi %s%n", name);
+        System.out.printf("%s, if you would like to play, press any key and if not, press 'q'.%n", name);
+        System.out.print("Your choice: ");
+        String playOrNot = scanner.nextLine();
+
+        if (playOrNot.equalsIgnoreCase("q")) { // user does not want to play
+            System.out.println("K, thanks for playing");
+            System.exit(0);
+        }
+        else { // user wants to play
+            System.out.printf("Good choice %s.%n", name);
+            System.out.print("\033[H\033[2J"); // had to get help, did not know how to clear the terminal in java
+            System.out.println("ok");
+        }
     }
 }
