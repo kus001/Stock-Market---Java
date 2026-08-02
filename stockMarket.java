@@ -14,7 +14,7 @@ public class stockMarket {
         double NVDA = 200.75;
         int sharesNVDA = 0;
         double AAPL = 308.91;
-        int sharesAPPL = 0;
+        int sharesAAPL = 0;
 
         // introduction
         System.out.println("======");
@@ -33,6 +33,7 @@ public class stockMarket {
         System.out.println("    - buy shares (if you can afford them lol)");
         System.out.println("    - sell the shares you own");
         System.out.println("    - skip to the next day");
+        System.out.println("    - in any input field, type 'exit' to exit the game");
 
         System.out.println("Goal: ");
         System.out.println("Your goal is to make as much $$$$ as you can.");
@@ -67,7 +68,7 @@ public class stockMarket {
 
             // main HUD
             System.out.printf("NVDA : %.2f | Shares onwed : %d%n", NVDA, sharesNVDA);
-            System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAPPL);
+            System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
             System.out.println("------------------------------");
             System.out.printf("Cash : %.2f%n", cash);
 
@@ -116,7 +117,7 @@ public class stockMarket {
                         System.out.println("Skipping to day 2.");
                     }
                     else if (stockDay1.equalsIgnoreCase("AAPL")) {
-                        sharesAPPL += Shares;
+                        sharesAAPL += Shares;
                         cash -= day1cost;
                         System.out.printf("Bought %d shares of AAPL for %.2f.%n", Shares, day1cost);
                         System.out.println("Skipping to day 2.");
@@ -141,7 +142,7 @@ public class stockMarket {
                 System.out.println("Invalid input. Moving onto the next day.");
                 System.out.println("\n".repeat(50));
             }
-            
+
             // day 2
             String stockDay2 = "";
 
@@ -149,6 +150,14 @@ public class stockMarket {
             System.out.println("  DAY 2");
             System.out.println("==========");
             
+            System.out.println("\n");
+
+            // main HUD
+            System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
+            System.out.printf("AAPl : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
+            System.out.println("------------------------------");
+            System.out.printf("Cash : %.2f%n", cash);
+
             System.out.println("\n");
 
             // stock fluctuations
@@ -165,7 +174,7 @@ public class stockMarket {
 
                 if (stockChoice2.equalsIgnoreCase("buy")) {
                     while (true) {
-                        System.out.println("What stock do you want to buy: ");
+                        System.out.print("What stock do you want to buy: ");
                         String stockBuy2 = scanner.nextLine();
 
                         if (stockBuy2.equalsIgnoreCase("NVDA") || stockBuy2.equalsIgnoreCase("AAPL")) {
@@ -177,7 +186,7 @@ public class stockMarket {
                         }
                     }
 
-                    System.out.println("How many shares: ");
+                    System.out.print("How many shares: ");
                     double day2cost = 0;
                     int Shares = scanner.nextInt();
                     scanner.nextLine();
@@ -199,7 +208,7 @@ public class stockMarket {
                             System.out.println("Skipping to day 3.");
                         }
                         else if (stockDay1.equalsIgnoreCase("AAPL")) {
-                            sharesAPPL += Shares;
+                            sharesAAPL += Shares;
                             cash -= day2cost;
                             System.out.printf("Bought %d shares of AAPL for %.2f.%n", Shares, day2cost);
                             System.out.println("Skipping to day 3.");
@@ -213,7 +222,38 @@ public class stockMarket {
                     break;
                 }
                 else if (stockChoice2.equalsIgnoreCase("sell")) {
+                    while (true) {
+                        System.out.println("What stock do you want to sell: ");
+                        String stockSell2 = scanner.nextLine();
+                        
+                        if (stockSell2.equalsIgnoreCase("NVDA") || stockSell2.equalsIgnoreCase("AAPL")) {
+                            System.out.printf("How many shares of %s would you like to sell: ", stockSell2);
+                            int shareSell2 = scanner.nextInt();
+                            scanner.nextLine();
+                            // sell NVDA
+                            if (stockSell2.equalsIgnoreCase("NVDA") && sharesNVDA >= shareSell2) {
+                                double returnValue = shareSell2 * NVDA;
+                                sharesNVDA -= shareSell2;
+                                cash += returnValue;
+                                System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
+                            }
+                            // sell AAPL
+                            else if (stockSell2.equalsIgnoreCase("AAPL") && sharesAAPL >= shareSell2) {
+                                double returnValue = shareSell2 * AAPL;
+                                sharesAAPL -= shareSell2;
+                                cash += returnValue;
+                                System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
 
+                                break;
+                            }
+                            else {
+                                System.out.printf("You don't own that many shares of %s", stockSell2);
+                            }
+                        }
+                        else {
+                            System.out.println("Enter a valid stock to sell!!");
+                        }
+                    }
                     break;
                 }
                 else if (stockChoice2.equalsIgnoreCase("skip")) {
