@@ -42,7 +42,7 @@ public class stockMarket {
         System.out.println("Your goal is to make as much $$$$ as you can.");
 
         // getting to know the playa
-        System.out.println("What is your name: ");
+        System.out.print("What is your name: ");
         String name = scanner.nextLine();
 
         System.out.printf("Hi %s", name);
