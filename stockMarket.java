@@ -1,6 +1,8 @@
 import java.util.Scanner;
 import java.util.Random;
 
+// add feature like day 4 so that you can go back to previous input
+
 public class stockMarket {
     public static void main(String[] args) throws InterruptedException {
         // initialize scanner and random
@@ -43,6 +45,7 @@ public class stockMarket {
         System.out.println("    - buy shares (if you can afford them lol)");
         System.out.println("    - sell the shares you own");
         System.out.println("    - skip to the next day");
+        System.out.println("    - in any secondary input field, type 'back' to go back");
         System.out.println("    - in any primary input field, type 'exit' to exit the game");
         System.out.println("\n");
 
@@ -100,6 +103,10 @@ public class stockMarket {
                 while (true) {
                         System.out.println("What stock do you want to buy: ");
                         String stockBuy1 = scanner.nextLine();
+
+                        if (stockBuy1.equalsIgnoreCase("back")) {
+                            break; // if want to back out
+                        }
 
                         if (stockBuy1.equalsIgnoreCase("NVDA") || stockBuy1.equalsIgnoreCase("AAPL") || stockBuy1.equalsIgnoreCase("GOOGL")) {
                             stockDay1 = stockBuy1;
@@ -209,6 +216,10 @@ public class stockMarket {
                         System.out.print("What stock do you want to buy: ");
                         String stockBuy2 = scanner.nextLine();
 
+                        if (stockBuy2.equalsIgnoreCase("back")) {
+                            break; // if want to back out 
+                        }
+
                         if (stockBuy2.equalsIgnoreCase("NVDA") || stockBuy2.equalsIgnoreCase("AAPL") || stockBuy2.equalsIgnoreCase("GOOGL")) {
                             stockDay2 = stockBuy2;
                             break;
@@ -268,6 +279,10 @@ public class stockMarket {
                         System.out.println("What stock do you want to sell: ");
                         String stockSell2 = scanner.nextLine();
                         
+                        if (stockSell2.equalsIgnoreCase("back")) {
+                            break; // if want to back out 
+                        }
+
                         if (stockSell2.equalsIgnoreCase("NVDA") || stockSell2.equalsIgnoreCase("AAPL") || stockSell2.equalsIgnoreCase("GOOGL")) {
                             System.out.printf("How many shares of %s would you like to sell: ", stockSell2);
                             int shareSell2 = scanner.nextInt();
@@ -311,6 +326,7 @@ public class stockMarket {
                     }
                 }
                 else if (stockChoice2.equalsIgnoreCase("skip")) {
+                    System.out.println("Skipping to day 3.");
                     System.out.println("\n".repeat(50));
                     break;
                 }
@@ -376,6 +392,10 @@ public class stockMarket {
                         System.out.print("What stock do you want to buy: ");
                         String stockBuy3 = scanner.nextLine();
 
+                        if (stockBuy3.equalsIgnoreCase("back")) {
+                            break; // if want to back out 
+                        }
+
                         if (stockBuy3.equalsIgnoreCase("NVDA") || stockBuy3.equalsIgnoreCase("AAPL") || stockBuy3.equalsIgnoreCase("GOOGL")) {
                             stockDay3 = stockBuy3;
                             break;
@@ -435,6 +455,10 @@ public class stockMarket {
                         System.out.println("What stock do you want to sell: ");
                         String stockSell3 = scanner.nextLine();
                         
+                        if (stockSell3.equalsIgnoreCase("back")) {
+                            break; // if want to back out 
+                        }
+
                         if (stockSell3.equalsIgnoreCase("NVDA") || stockSell3.equalsIgnoreCase("AAPL") || stockSell3.equalsIgnoreCase("GOOGL")) {
                             System.out.printf("How many shares of %s would you like to sell: ", stockSell3);
                             int shareSell3 = scanner.nextInt();
@@ -514,10 +538,17 @@ public class stockMarket {
         while (true) {
             System.out.print("What do you want to do (type buy/sell/skip): ");
             String stockChoice4 = scanner.nextLine();
+            String stockBuy4 = "";
+
             if (stockChoice4.equalsIgnoreCase("buy")) {
                 while (true) {
                     System.out.print("What stock do you want to buy: ");
-                    String stockBuy4 = scanner.nextLine();
+                    stockBuy4 = scanner.nextLine();
+
+                    if (stockBuy4.equalsIgnoreCase("back")) {
+                            break; // if want to back out 
+                    }
+
                     if (stockBuy4.equalsIgnoreCase("NVDA") || stockBuy4.equalsIgnoreCase("AAPL") || stockBuy4.equalsIgnoreCase("GOOGL")) {
                         stockDay4 = stockBuy4;
                         break;
@@ -526,6 +557,11 @@ public class stockMarket {
                         System.out.println("Enter a valid stock!!");
                     }
                 }
+
+                if (stockBuy4.equalsIgnoreCase("back")) { // got help (if user wants to go back)
+                    continue; 
+                }
+
                 System.out.print("How many shares: ");
                 double day4cost = 0;
                 int Shares = scanner.nextInt();
@@ -568,11 +604,18 @@ public class stockMarket {
                     System.out.println("Cant afford it.");
                 }
             }
+            
             else if (stockChoice4.equalsIgnoreCase("sell")) {
+                String stockSell4 = ""; // got help for this part, couldnt figure out how to implement the 'back'ing out feature
+
                 while (true) {
                     System.out.println("What stock do you want to sell: ");
-                    String stockSell4 = scanner.nextLine();
+                    stockSell4 = scanner.nextLine();
                     
+                    if (stockSell4.equalsIgnoreCase("back")) {
+                            break; // if want to back out 
+                        }
+
                     if (stockSell4.equalsIgnoreCase("NVDA") || stockSell4.equalsIgnoreCase("AAPL") || stockSell4.equalsIgnoreCase("GOOGL")) {
                         System.out.printf("How many shares of %s would you like to sell: ", stockSell4);
                         int shareSell4 = scanner.nextInt();
@@ -598,7 +641,7 @@ public class stockMarket {
                         // sell GOOGL
                         else if (stockSell4.equalsIgnoreCase("GOOGL") && shareSell4 > 0 && sharesGOOGL >= shareSell4) {
                             double returnValue = shareSell4 * GOOGL;
-                            sharesAAPL -= shareSell4;
+                            sharesGOOGL -= shareSell4;
                             cash += returnValue;
                             System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell4, stockSell4, returnValue);
                             System.out.println("\n".repeat(50));
@@ -614,6 +657,12 @@ public class stockMarket {
                         continue;
                     }
                 }
+
+                // 3. THIS ONE IF STATEMENT FIXES EVERYTHING
+                if (!stockSell4.equalsIgnoreCase("back")) {
+                    break; 
+                }
+
                 // break; 
                 // THE BREAK BREAKS OUT of THE ENTIRE DAY
             }
@@ -681,6 +730,10 @@ public class stockMarket {
                 while (true) {
                     System.out.print("What stock do you want to buy: ");
                     String stockBuy5 = scanner.nextLine();
+
+                    if (stockBuy5.equalsIgnoreCase("back")) {
+                            break; // if want to back out 
+                        }
                     if (stockBuy5.equalsIgnoreCase("NVDA") || stockBuy5.equalsIgnoreCase("AAPL") || stockBuy5.equalsIgnoreCase("GOOGL")) {
                         stockDay5 = stockBuy5;
                         break;
@@ -736,6 +789,10 @@ public class stockMarket {
                     System.out.println("What stock do you want to sell: ");
                     String stockSell5 = scanner.nextLine();
                     
+                    if (stockSell5.equalsIgnoreCase("back")) {
+                            break; // if want to back out 
+                        }
+
                     if (stockSell5.equalsIgnoreCase("NVDA") || stockSell5.equalsIgnoreCase("AAPL") || stockSell5.equalsIgnoreCase("GOOGL")) {
                         System.out.printf("How many shares of %s would you like to sell: ", stockSell5);
                         int shareSell5 = scanner.nextInt();
