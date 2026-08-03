@@ -194,7 +194,7 @@ public class stockMarket {
             // main HUD
             System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
             System.out.printf("AAPl : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
-            System.out.printf("GOOGL : %.2f | Shares owned : %.2f", GOOGL, sharesGOOGL);
+            System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
             System.out.println("------------------------------");
             System.out.printf("Cash : %.2f%n", cash);
 
@@ -309,7 +309,6 @@ public class stockMarket {
                             continue;
                         }
                     }
-                    break;
                 }
                 else if (stockChoice2.equalsIgnoreCase("skip")) {
                     System.out.println("\n".repeat(50));
@@ -477,7 +476,6 @@ public class stockMarket {
                             continue;
                         }
                     }
-                    break;
                 }
                 else if (stockChoice3.equalsIgnoreCase("skip")) {
                     System.out.println("\n".repeat(50));
@@ -598,7 +596,7 @@ public class stockMarket {
                             break;
                         }
                         // sell GOOGL
-                        else if (stockSell4.equalsIgnoreCase("AAPL") && shareSell4 > 0 && sharesGOOGL >= shareSell4) {
+                        else if (stockSell4.equalsIgnoreCase("GOOGL") && shareSell4 > 0 && sharesGOOGL >= shareSell4) {
                             double returnValue = shareSell4 * GOOGL;
                             sharesAAPL -= shareSell4;
                             cash += returnValue;
@@ -616,7 +614,8 @@ public class stockMarket {
                         continue;
                     }
                 }
-                break;
+                // break; 
+                // THE BREAK BREAKS OUT of THE ENTIRE DAY
             }
             else if (stockChoice4.equalsIgnoreCase("skip")) {
                 System.out.println("\n".repeat(50));
@@ -723,7 +722,7 @@ public class stockMarket {
                     else if (stockDay4.equalsIgnoreCase("GOOGL")) {
                         sharesGOOGL += Shares;
                         cash -= day5cost;
-                        System.out.printf("Bought %d shares of AAPL for %.2f.%n", Shares, day5cost);
+                        System.out.printf("Bought %d shares of GOOGL for %.2f.%n", Shares, day5cost);
                         System.out.println("Moving to day 4.");
                         break;
                     }
@@ -760,7 +759,7 @@ public class stockMarket {
                             break;
                         }
                         // sell GOOGL
-                        else if (stockSell5.equalsIgnoreCase("AAPL") && shareSell5 > 0 && sharesGOOGL >= shareSell5) {
+                        else if (stockSell5.equalsIgnoreCase("GOOGL") && shareSell5 > 0 && sharesGOOGL >= shareSell5) {
                             double returnValue = shareSell5 * GOOGL;
                             sharesGOOGL -= shareSell5;
                             cash += returnValue;
@@ -778,7 +777,7 @@ public class stockMarket {
                         continue;
                     }
                 }
-                break;
+                // break;
             }
             else if (stockChoice5.equalsIgnoreCase("skip")) {
                 System.out.println("\n".repeat(50));
@@ -798,33 +797,32 @@ public class stockMarket {
         (so the input can deal with wrong data types)
         */
         
-        double profitOrLoss = 1000 - cash;
+        double profitOrLoss = cash - 1000; // 
 
         System.out.println("Your trading journey comes to an end (for now). ");
         System.out.println("Here are your stats: ");
         
-        if (profitOrLoss > 1000) {
-            double profit = cash - 1000;
-            System.out.printf("Cash : $%.2f | Profit : $%.2f", cash, profit);
+        if (profitOrLoss > 0) {
+            // double profit = cash - 1000;
+            System.out.printf("Cash : $%.2f | Profit : $%.2f", cash, profitOrLoss);
             System.out.println();
             System.out.println("Making profit? Lets gooo!!");
 
         }
-        else if (profitOrLoss == 1000) {
-            System.out.printf("Cash : $.2f | Profit : $%.1f", cash, (int)cash);
-            System.out.println();
-            System.out.printf("Ah, its all good %s.%n", name);
-            System.out.println("Maybe you can change this outcome by playing AGAIN...");
-        }
-        else {
+        else if (profitOrLoss < 0) {
             double loss = 1000 - cash;
 
-            System.out.printf("Cash : $.2f | Profit : -$%.2f", cash, loss);
+            System.out.printf("Cash : $%.2f | Profit : -$%.2f", cash, loss);
             System.out.println();
             System.out.println("Ok, maybe not the outcome you expected but what can we do??");
             System.out.printf("I think you should play again, %s.%n", name);
             System.out.println("Maybe, yk see if something changes.");
-
+        }
+        else {
+            System.out.printf("Cash : $%.2f | Profit : $0", cash);
+            System.out.println();
+            System.out.printf("Ah, its all good %s.%n", name);
+            System.out.println("Maybe you can change this outcome by playing AGAIN...");
         }
 
         System.out.print("\n".repeat(2));
