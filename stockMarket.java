@@ -12,7 +12,9 @@ public class stockMarket {
         // stock fluctuations
         double low = -0.15;
         double high = 0.15;
-        double randomChange = (double)(Math.random() * (high-low) + low);
+        double randomChange = (double)(Math.random() * (high-low) + low); 
+    
+        double randomEventNum = Math.random(); // only for CRAZY tragic/good events (day 5)
 
         // stocks
         double NVDA = 200.75;
@@ -338,9 +340,6 @@ public class stockMarket {
             GOOGL = GOOGL + (GOOGL * randomChange);
 
             // System.out.println("NVDA");
-            
-            // random event 
-            double randomEventNum = Math.random();
 
             // make sure the random event works for the new stock of google
             if (randomEventNum >= 0.67) {
@@ -641,6 +640,32 @@ public class stockMarket {
         System.out.println("\n");
         
         // either tragic or super good event
+
+        // System.out.println(randomEventNum * 5);
+        if (randomEventNum > 0.6) {
+            NVDA = NVDA * 0.85; 
+            AAPL = AAPL * 0.85;
+            GOOGL = GOOGL * 0.85;
+
+            System.out.println("THE ENTIRE STOCK MARKET IS DOWN 15%!!");
+            System.out.println("\n");
+        }
+        else if (randomEventNum <= 0.4 && randomEventNum >= 0.5) {
+            AAPL = AAPL * 1.20;
+            NVDA = NVDA * 1.20;
+            GOOGL = GOOGL * 1.20;
+
+            System.out.println("THE ENTIRE STOCK MARKET IS UP 20%!?");
+            System.out.println("\n");
+        }
+        else if (randomEventNum < 0.4) {
+            AAPL = AAPL * 0.90;
+            NVDA = NVDA * 0.90;
+            GOOGL = GOOGL * 0.90;
+
+            System.out.println("THE ENTIRE STOCK MARKET IS DOWN 10%!!!");
+            System.out.println("\n");
+        }
     
         // main HUD
         System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
