@@ -96,13 +96,14 @@ public class stockMarket {
             while (true) {
             System.out.print("What do you want to do (type buy/sell/skip): ");
             String stockChoice1 = scanner.nextLine();
+            String stockBuy1 = "";
 
             // day 1 choices
 
             if (stockChoice1.equalsIgnoreCase("buy")) {
                 while (true) {
                         System.out.println("What stock do you want to buy: ");
-                        String stockBuy1 = scanner.nextLine();
+                        stockBuy1 = scanner.nextLine();
 
                         if (stockBuy1.equalsIgnoreCase("back")) {
                             break; // if want to back out
@@ -117,7 +118,9 @@ public class stockMarket {
                         }
                     }
 
-                    // System.out.println(stockDay1);
+                    if (stockBuy1.equalsIgnoreCase("back")) { // got help (if user wants to go back)
+                        continue; 
+                    }
 
                     System.out.println("How many shares: ");
                     double day1cost = 0;
@@ -210,11 +213,12 @@ public class stockMarket {
             while (true) {
             System.out.print("What do you want to do (type buy/sell/skip): ");
             String stockChoice2 = scanner.nextLine();
+            String stockBuy2 = "";
 
                 if (stockChoice2.equalsIgnoreCase("buy")) {
                     while (true) {
                         System.out.print("What stock do you want to buy: ");
-                        String stockBuy2 = scanner.nextLine();
+                        stockBuy2 = scanner.nextLine();
 
                         if (stockBuy2.equalsIgnoreCase("back")) {
                             break; // if want to back out 
@@ -229,6 +233,10 @@ public class stockMarket {
                         }
                     }
 
+                    if (stockBuy2.equalsIgnoreCase("back")) { // got help (if user wants to go back)
+                        continue; 
+                    }   
+                    
                     System.out.print("How many shares: ");
                     double day2cost = 0;
                     int Shares = scanner.nextInt();
@@ -272,12 +280,13 @@ public class stockMarket {
                     else {
                         System.out.println("Cant afford it.");
                     }
+                } 
 
-                
-                } else if (stockChoice2.equalsIgnoreCase("sell")) {
+                else if (stockChoice2.equalsIgnoreCase("sell")) {
+                    String stockSell2 = "";
                     while (true) {
                         System.out.println("What stock do you want to sell: ");
-                        String stockSell2 = scanner.nextLine();
+                        stockSell2 = scanner.nextLine();
                         
                         if (stockSell2.equalsIgnoreCase("back")) {
                             break; // if want to back out 
@@ -324,6 +333,11 @@ public class stockMarket {
                             continue;
                         }
                     }
+
+                if (stockSell2.equalsIgnoreCase("back")) { // got help (if user wants to go back)
+                    continue; 
+                }
+
                 }
                 else if (stockChoice2.equalsIgnoreCase("skip")) {
                     System.out.println("Skipping to day 3.");
@@ -386,11 +400,12 @@ public class stockMarket {
             while (true) {
                 System.out.print("What do you want to do (type buy/sell/skip): ");
                 String stockChoice3 = scanner.nextLine();
+                String stockBuy3 = "";
 
                 if (stockChoice3.equalsIgnoreCase("buy")) {
                     while (true) {
                         System.out.print("What stock do you want to buy: ");
-                        String stockBuy3 = scanner.nextLine();
+                        stockBuy3 = scanner.nextLine();
 
                         if (stockBuy3.equalsIgnoreCase("back")) {
                             break; // if want to back out 
@@ -404,6 +419,10 @@ public class stockMarket {
                             System.out.println("Enter a valid stock!!");
                         }
                     }
+
+                if (!stockBuy3.equalsIgnoreCase("back")) {
+                    break; 
+                }
 
                     System.out.print("How many shares: ");
                     double day3cost = 0;
@@ -451,9 +470,11 @@ public class stockMarket {
             
                 } 
                 else if (stockChoice3.equalsIgnoreCase("sell")) {
+
+                    String stockSell3 = "";
                     while (true) {
                         System.out.println("What stock do you want to sell: ");
-                        String stockSell3 = scanner.nextLine();
+                        stockSell3 = scanner.nextLine();
                         
                         if (stockSell3.equalsIgnoreCase("back")) {
                             break; // if want to back out 
@@ -500,6 +521,11 @@ public class stockMarket {
                             continue;
                         }
                     }
+
+                    if (stockSell3.equalsIgnoreCase("back")) { // got help (if user wants to go back)
+                        continue; 
+                    }
+
                 }
                 else if (stockChoice3.equalsIgnoreCase("skip")) {
                     System.out.println("\n".repeat(50));
@@ -726,10 +752,11 @@ public class stockMarket {
         while (true) {
             System.out.print("What do you want to do (type buy/sell/skip): ");
             String stockChoice5 = scanner.nextLine();
+            String stockBuy5 = "";
             if (stockChoice5.equalsIgnoreCase("buy")) {
                 while (true) {
                     System.out.print("What stock do you want to buy: ");
-                    String stockBuy5 = scanner.nextLine();
+                    stockBuy5 = scanner.nextLine();
 
                     if (stockBuy5.equalsIgnoreCase("back")) {
                             break; // if want to back out 
@@ -742,6 +769,11 @@ public class stockMarket {
                         System.out.println("Enter a valid stock!!");
                     }
                 }
+
+                if (stockBuy5.equalsIgnoreCase("back")) { // got help (if user wants to go back)
+                    continue; 
+                }
+
                 System.out.print("How many shares: ");
                 double day5cost = 0;
                 int Shares = scanner.nextInt();
@@ -785,9 +817,10 @@ public class stockMarket {
                 }
             }
             else if (stockChoice5.equalsIgnoreCase("sell")) {
+                String stockSell5 = "";
                 while (true) {
                     System.out.println("What stock do you want to sell: ");
-                    String stockSell5 = scanner.nextLine();
+                    stockSell5 = scanner.nextLine();
                     
                     if (stockSell5.equalsIgnoreCase("back")) {
                             break; // if want to back out 
@@ -833,6 +866,10 @@ public class stockMarket {
                         System.out.println("Enter a valid stock to sell!!");
                         continue;
                     }
+                }
+
+                if (!stockSell5.equalsIgnoreCase("back")) {
+                    break; 
                 }
                 // break;
             }
