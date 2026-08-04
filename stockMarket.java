@@ -270,7 +270,7 @@ public class stockMarket {
                         }
                     }
 
-                    // find out the cost of day 1 shares
+                    // find out the cost of day 2 shares
                     if (stockDay2.equalsIgnoreCase("NVDA")) {
                         day2cost = NVDA * Shares;
                     }
@@ -322,8 +322,23 @@ public class stockMarket {
 
                         if (stockSell2.equalsIgnoreCase("NVDA") || stockSell2.equalsIgnoreCase("AAPL") || stockSell2.equalsIgnoreCase("GOOGL")) {
                             System.out.printf("How many shares of %s would you like to sell: ", stockSell2);
-                            int shareSell2 = scanner.nextInt();
-                            scanner.nextLine();
+                            int shareSell2 = 0;
+
+                            while (true) {
+                                System.out.printf("How many shares of %s would you like to sell: ", stockSell2);
+                            
+                                if (scanner.hasNextInt()) {
+                                    shareSell2 = scanner.nextInt();
+                                    scanner.nextLine();
+                                    break;
+                                }
+                                else {
+                                    System.out.println("INVALID input!!");
+                                
+                                    scanner.nextLine();
+                                }
+                            }
+
                             // sell NVDA
                             if (stockSell2.equalsIgnoreCase("NVDA") && shareSell2 > 0 && sharesNVDA >= shareSell2) {
                                 double returnValue = shareSell2 * NVDA;
@@ -524,8 +539,23 @@ public class stockMarket {
 
                         if (stockSell3.equalsIgnoreCase("NVDA") || stockSell3.equalsIgnoreCase("AAPL") || stockSell3.equalsIgnoreCase("GOOGL")) {
                             System.out.printf("How many shares of %s would you like to sell: ", stockSell3);
-                            int shareSell3 = scanner.nextInt();
-                            scanner.nextLine();
+                            int shareSell3 = 0;
+
+                        while (true) {
+                            System.out.printf("How many shares of %s would you like to sell: ", stockSell3);
+                        
+                            if (scanner.hasNextInt()) {
+                                shareSell3 = scanner.nextInt();
+                                scanner.nextLine();
+                                break;
+                            }
+                            else {
+                                System.out.println("INVALID input!!");
+                            
+                                scanner.nextLine();
+                            }
+                        }
+
                             // sell NVDA
                             if (stockSell3.equalsIgnoreCase("NVDA") && shareSell3 > 0 && sharesNVDA >= shareSell3) { // fixed the input error for sell
                                 double returnValue = shareSell3 * NVDA;
@@ -702,8 +732,23 @@ public class stockMarket {
 
                     if (stockSell4.equalsIgnoreCase("NVDA") || stockSell4.equalsIgnoreCase("AAPL") || stockSell4.equalsIgnoreCase("GOOGL")) {
                         System.out.printf("How many shares of %s would you like to sell: ", stockSell4);
-                        int shareSell4 = scanner.nextInt();
-                        scanner.nextLine();
+                        int shareSell4 = 0;
+
+                        while (true) {
+                            System.out.printf("How many shares of %s would you like to sell: ", stockSell4);
+                        
+                            if (scanner.hasNextInt()) {
+                                shareSell4 = scanner.nextInt();
+                                scanner.nextLine();
+                                break;
+                            }
+                            else {
+                                System.out.println("INVALID input!!");
+                            
+                                scanner.nextLine();
+                            }
+                        }
+                        
                         // sell NVDA
                         if (stockSell4.equalsIgnoreCase("NVDA") && shareSell4 > 0 && sharesNVDA >= shareSell4) {
                             double returnValue = shareSell4 * NVDA;
@@ -899,8 +944,22 @@ public class stockMarket {
 
                     if (stockSell5.equalsIgnoreCase("NVDA") || stockSell5.equalsIgnoreCase("AAPL") || stockSell5.equalsIgnoreCase("GOOGL")) {
                         System.out.printf("How many shares of %s would you like to sell: ", stockSell5);
-                        int shareSell5 = scanner.nextInt();
-                        scanner.nextLine();
+                        int shareSell5 = 0;
+
+                        while (true) {
+                            System.out.printf("How many shares of %s would you like to sell: ", stockSell5);
+                        
+                            if (scanner.hasNextInt()) {
+                                shareSell5 = scanner.nextInt();
+                                scanner.nextLine();
+                                break;
+                            }
+                            else {
+                                System.out.println("INVALID input!!");
+                                scanner.nextLine();
+                            }
+                        }
+
                         // sell NVDA
                         if (stockSell5.equalsIgnoreCase("NVDA") && shareSell5 > 0 && sharesNVDA >= shareSell5) {
                             double returnValue = shareSell5 * NVDA;
