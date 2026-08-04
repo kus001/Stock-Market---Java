@@ -47,23 +47,23 @@ public class stockMarket {
         System.out.println("    - skip to the next day");
         System.out.println("    - in any secondary input field, type 'back' to go back");
         System.out.println("    - in any primary input field, type 'exit' to exit the game");
-        System.out.println("\n");
+        System.out.print("\n");
 
         System.out.println("Goal: ");
         System.out.println("Your goal is to make as much $$$$ as you can.");
-        Thread.sleep(3575);
+        Thread.sleep(3000);
         System.out.print("\n"); // had to get help, did not know how to clear the terminal in java
 
         // getting to know the playa
         System.out.print("What is your name: ");
         String name = scanner.nextLine();
 
-        System.out.println("\n");
+        System.out.print("\n");
 
         System.out.printf("Hi %s%n", name);
-        System.out.println("\n");
+        System.out.print("\n");
         System.out.printf("%s, if you would like to play, press any key and if not, press 'q'.%n", name);
-        System.out.println("\n");
+        System.out.print("\n");
         System.out.print("Your choice: ");
         String playOrNot = scanner.nextLine();
 
@@ -88,7 +88,7 @@ public class stockMarket {
             System.out.printf("NVDA : %.2f | Shares onwed : %d%n", NVDA, sharesNVDA);
             System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
             System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
-            System.out.println("------------------------------");
+            System.out.println("-------------------------------");
             System.out.printf("Cash : %.2f%n", cash);
 
             System.out.println("\n");
@@ -124,8 +124,22 @@ public class stockMarket {
 
                     System.out.println("How many shares: ");
                     double day1cost = 0;
-                    int Shares = scanner.nextInt();
-                    scanner.nextLine();
+                    int Shares = 0;
+
+                    while (true) {
+                        System.out.print("How many shares: ");
+
+                        if (scanner.hasNextInt()) {
+                            Shares = scanner.nextInt();
+                            scanner.nextLine();
+                            break;
+                        }
+                        else {
+                            System.out.println("INVALID input!!");
+
+                            scanner.nextLine();
+                        }
+                    }
 
                     // find out the cost of day 1 shares
                     if (stockDay1.equalsIgnoreCase("NVDA")) {
@@ -239,8 +253,22 @@ public class stockMarket {
                     
                     System.out.print("How many shares: ");
                     double day2cost = 0;
-                    int Shares = scanner.nextInt();
-                    scanner.nextLine();
+                    int Shares = 0;
+
+                    while (true) {
+                        System.out.print("How many shares: ");
+
+                        if (scanner.hasNextInt()) {
+                            Shares = scanner.nextInt();
+                            scanner.nextLine();
+                            break;
+                        }
+                        else {
+                            System.out.println("INVALID input!!");
+
+                            scanner.nextLine();
+                        }
+                    }
 
                     // find out the cost of day 1 shares
                     if (stockDay2.equalsIgnoreCase("NVDA")) {
@@ -426,8 +454,22 @@ public class stockMarket {
 
                     System.out.print("How many shares: ");
                     double day3cost = 0;
-                    int Shares = scanner.nextInt();
-                    scanner.nextLine();
+                    int Shares = 0;
+
+                    while (true) {
+                        System.out.print("How many shares: ");
+
+                        if (scanner.hasNextInt()) {
+                            Shares = scanner.nextInt();
+                            scanner.nextLine();
+                            break;
+                        }
+                        else {
+                            System.out.println("INVALID input!!");
+
+                            scanner.nextLine();
+                        }
+                    }
 
                     // find out the cost of day 3 shares
                     if (stockDay3.equalsIgnoreCase("NVDA")) {
@@ -590,8 +632,24 @@ public class stockMarket {
 
                 System.out.print("How many shares: ");
                 double day4cost = 0;
-                int Shares = scanner.nextInt();
+                int Shares = 0;
                 scanner.nextLine();
+
+                while (true) {
+                    System.out.print("How many shares: ");
+
+                    if (scanner.hasNextInt()) {
+                        Shares = scanner.nextInt();
+                        scanner.nextLine();
+                        break;
+                    }
+                    else {
+                        System.out.println("INVALID input!!");
+
+                        scanner.nextLine();
+                    }
+                }
+                
                 // find out the cost of day 1 shares
                 if (stockDay4.equalsIgnoreCase("NVDA")) {
                     day4cost = NVDA * Shares;
@@ -776,8 +834,21 @@ public class stockMarket {
 
                 System.out.print("How many shares: ");
                 double day5cost = 0;
-                int Shares = scanner.nextInt();
-                scanner.nextLine();
+                int Shares = 0;
+
+                while (true) {
+                    System.out.print("How many shares: ");
+                    if (scanner.hasNextInt()) {
+                        Shares = scanner.nextInt();
+                        scanner.nextLine();
+                        break;
+                    }
+                    else {
+                        System.out.println("INVALID input!!");
+                        scanner.nextLine();
+                    }
+                }
+
                 // find out the cost of day 1 shares
                 if (stockDay5.equalsIgnoreCase("NVDA")) {
                     day5cost = NVDA * Shares;
@@ -899,7 +970,7 @@ public class stockMarket {
         if (profitOrLoss > 0) {
             // double profit = cash - 1000;
             System.out.printf("Cash : $%.2f | Profit : $%.2f", cash, profitOrLoss);
-            System.out.println();
+            System.out.println("\n");
             System.out.println("Making profit? Lets gooo!!");
 
         }
@@ -909,13 +980,14 @@ public class stockMarket {
             System.out.printf("Cash : $%.2f | Profit : -$%.2f", cash, loss);
             System.out.println();
             System.out.println("Ok, maybe not the outcome you expected but what can we do??");
+            System.out.println("\n");
             System.out.printf("I think you should play again, %s.%n", name);
             System.out.println("Maybe, yk see if something changes.");
         }
         else {
             System.out.printf("Cash : $%.2f | Profit : $0", cash);
-            System.out.println();
-            System.out.printf("Ah, its all good %s.%n", name);
+            System.out.println("\n");
+            System.out.println("Nothing changed??");
             System.out.println("Maybe you can change this outcome by playing AGAIN...");
         }
 
