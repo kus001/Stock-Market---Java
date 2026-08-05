@@ -70,25 +70,7 @@ public class stockMarket {
         }
         else { // user wants to play
             System.out.printf("Good choice %s.%n", name);
-            System.out.print("\n".repeat(50)); // had to get help, did not know how to clear the terminal in java
-            
-            // day 1
-            // String stockDay1 = "";
-
-            // System.out.println("==========");
-            // System.out.println("  DAY 1");
-            // System.out.println("==========");
-            
-            // System.out.println("\n");
-
-            // // main HUD
-            // System.out.printf("NVDA : %.2f | Shares onwed : %d%n", NVDA, sharesNVDA);
-            // System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
-            // System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
-            // System.out.println("-------------------------------");
-            // System.out.printf("Cash : %.2f%n", cash);
-
-            // System.out.println("\n");
+            System.out.print("\n".repeat(50)); // had to get help, did not know how to ''clear' the terminal in java
 
             while (true) {
             // day 1
@@ -212,7 +194,9 @@ public class stockMarket {
                     System.exit(0);
                 }
                 else {
-                        System.out.println("Invalid input. CMON!!!");
+                    System.out.println("Invalid input. CMON!!!");
+                    Thread.sleep(500);
+                    System.out.println("\n".repeat(50));
                     }
             }
 
@@ -852,30 +836,44 @@ public class stockMarket {
         
         // either tragic or super good event
 
-        // System.out.println(randomEventNum * 5);
-        if (randomEventNum > 0.6) {
-            NVDA = NVDA * 0.85; 
-            AAPL = AAPL * 0.85;
-            GOOGL = GOOGL * 0.85;
+        if (randomEventNum > 0.9) {
+            low = 0.15;
+            high = 0.50;
 
-            System.out.println("THE ENTIRE STOCK MARKET IS DOWN 15%!!");
-            System.out.println("\n");
+            randomChangeNVDA = (double)(Math.random() * (high-low) + low);
+            NVDA = (NVDA * randomChangeNVDA) + NVDA;
+
+            randomChangeAAPL = (double)(Math.random() * (high-low) + low);
+            AAPL = (AAPL * randomChangeAAPL) + AAPL;
+
+            randomChangeGOOGL = (double)(Math.random() * (high-low) + low);
+            GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;
         }
-        else if (randomEventNum >= 0.4 && randomEventNum <= 0.5) {
-            AAPL = AAPL * 1.20;
-            NVDA = NVDA * 1.20;
-            GOOGL = GOOGL * 1.20;
+        else if (randomEventNum < 0.1) {
+            low = -0.50;
+            high = -0.05;
 
-            System.out.println("THE ENTIRE STOCK MARKET IS UP 20%!?");
-            System.out.println("\n");
+            randomChangeNVDA = (double)(Math.random() * (high-low) + low);
+            NVDA = (NVDA * randomChangeNVDA) + NVDA;
+
+            randomChangeAAPL = (double)(Math.random() * (high-low) + low);
+            AAPL = (AAPL * randomChangeAAPL) + AAPL;
+
+            randomChangeGOOGL = (double)(Math.random() * (high-low) + low);
+            GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;            
         }
-        else if (randomEventNum < 0.4) {
-            AAPL = AAPL * 0.90;
-            NVDA = NVDA * 0.90;
-            GOOGL = GOOGL * 0.90;
+        else {
+            low = -0.35;
+            high = 0.35;
 
-            System.out.println("THE ENTIRE STOCK MARKET IS DOWN 10%!!!");
-            System.out.println("\n");
+            randomChangeNVDA = (double)(Math.random() * (high-low) + low);
+            NVDA = (NVDA * randomChangeNVDA) + NVDA;
+
+            randomChangeAAPL = (double)(Math.random() * (high-low) + low);
+            AAPL = (AAPL * randomChangeAAPL) + AAPL;
+
+            randomChangeGOOGL = (double)(Math.random() * (high-low) + low);
+            GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;
         }
 
         while (true) {
@@ -886,12 +884,11 @@ public class stockMarket {
         System.out.println("==========");
 
         // main HUD
-        System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
-        System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
-        System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
+        System.out.printf("NVDA : %.2f (%s%.2f%%) | Shares owned : %d%n", NVDA, (randomChangeNVDA >= 0 ? "+" : ""), randomChangeNVDA*100, sharesNVDA);
+        System.out.printf("AAPL : %.2f (%s%.2f%%) | Shares owned : %d%n", AAPL, (randomChangeAAPL >= 0 ? "+" : ""), randomChangeAAPL*100, sharesAAPL);
+        System.out.printf("GOOGL : %.2f (%s%.2f%%) | Shares owned : %d%n", GOOGL, (randomChangeGOOGL >= 0 ? "+" : ""), randomChangeGOOGL*100, sharesGOOGL);
         System.out.println("------------------------------");
         System.out.printf("Cash : %.2f%n", cash);
-    
         System.out.println("\n");
     
         System.out.println("\n");
