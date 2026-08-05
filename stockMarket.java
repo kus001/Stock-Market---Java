@@ -1,7 +1,7 @@
 import java.util.Scanner;
 import java.util.Random;
 
-// add feature like day 4 so that you can go back to previous input
+// MAKE SURE to learn for loops and other data types in java and then revisit this game after, make it more efficient
 
 public class stockMarket {
     public static void main(String[] args) throws InterruptedException {
@@ -122,7 +122,6 @@ public class stockMarket {
                         continue; 
                     }
 
-                    System.out.println("How many shares: ");
                     double day1cost = 0;
                     int Shares = 0;
 
@@ -132,7 +131,12 @@ public class stockMarket {
                         if (scanner.hasNextInt()) {
                             Shares = scanner.nextInt();
                             scanner.nextLine();
-                            break;
+                            if (Shares <= 0) {
+                                System.out.println("Invalid Input!");
+                            }
+                            else {
+                                break;
+                            }
                         }
                         else {
                             System.out.println("INVALID input!!");
@@ -217,7 +221,7 @@ public class stockMarket {
 
             // main HUD
             System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
-            System.out.printf("AAPl : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
+            System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
             System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
             System.out.println("------------------------------");
             System.out.printf("Cash : %.2f%n", cash);
@@ -251,7 +255,6 @@ public class stockMarket {
                         continue; 
                     }   
                     
-                    System.out.print("How many shares: ");
                     double day2cost = 0;
                     int Shares = 0;
 
@@ -261,7 +264,12 @@ public class stockMarket {
                         if (scanner.hasNextInt()) {
                             Shares = scanner.nextInt();
                             scanner.nextLine();
-                            break;
+                            if (Shares <= 0) {
+                                System.out.println("INVALID input!!");
+                            }
+                            else {
+                                break;
+                            }
                         }
                         else {
                             System.out.println("INVALID input!!");
@@ -370,14 +378,13 @@ public class stockMarket {
                                 continue;
                             }
                         }
-                        else {
+                        else if (!stockSell2.equalsIgnoreCase("back")) {
                             System.out.println("Enter a valid stock to sell!!");
-                            continue;
                         }
                     }
 
-                if (stockSell2.equalsIgnoreCase("back")) { // got help (if user wants to go back)
-                    continue; 
+                if (!stockSell2.equalsIgnoreCase("back")) { // got help (if user wants to go back)
+                    break; 
                 }
 
                 }
@@ -462,11 +469,10 @@ public class stockMarket {
                         }
                     }
 
-                if (!stockBuy3.equalsIgnoreCase("back")) {
-                    break; 
+                if (stockBuy3.equalsIgnoreCase("back")) {
+                    continue; 
                 }
 
-                    System.out.print("How many shares: ");
                     double day3cost = 0;
                     int Shares = 0;
 
@@ -476,7 +482,11 @@ public class stockMarket {
                         if (scanner.hasNextInt()) {
                             Shares = scanner.nextInt();
                             scanner.nextLine();
-                            break;
+                            if (Shares <= 0) {
+                                System.out.println("INDVALID INPUT!");
+                            } else {
+                                break;
+                            }
                         }
                         else {
                             System.out.println("INVALID input!!");
@@ -592,8 +602,8 @@ public class stockMarket {
                         }
                     }
 
-                    if (stockSell3.equalsIgnoreCase("back")) { // got help (if user wants to go back)
-                        continue; 
+                    if (!stockSell3.equalsIgnoreCase("back")) { // got help (if user wants to go back)
+                        break; 
                     }
 
                 }
@@ -622,6 +632,7 @@ public class stockMarket {
         // add stock fluctuations here
         NVDA = NVDA + (NVDA * randomChange);
         AAPL = AAPL + (AAPL * randomChange);
+        GOOGL = GOOGL + (GOOGL * randomChange); 
     
         // main HUD
         System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
@@ -658,18 +669,20 @@ public class stockMarket {
                     continue; 
                 }
 
-                System.out.print("How many shares: ");
                 double day4cost = 0;
                 int Shares = 0;
-                scanner.nextLine();
 
                 while (true) {
                     System.out.print("How many shares: ");
-
                     if (scanner.hasNextInt()) {
                         Shares = scanner.nextInt();
                         scanner.nextLine();
-                        break;
+                        if (Shares <= 0) {
+                            System.out.println("Invalid Input!!!");
+                        }
+                        else {
+                            break;
+                        }
                     }
                     else {
                         System.out.println("INVALID input!!");
@@ -678,7 +691,7 @@ public class stockMarket {
                     }
                 }
                 
-                // find out the cost of day 1 shares
+                // find out the cost of day 4 shares
                 if (stockDay4.equalsIgnoreCase("NVDA")) {
                     day4cost = NVDA * Shares;
                 }
@@ -694,21 +707,21 @@ public class stockMarket {
                         sharesNVDA += Shares;
                         cash -= day4cost;
                         System.out.printf("Bought %d shares of NVDA for %.2f.%n", Shares, day4cost);
-                        System.out.println("Moving to day 3.");
+                        System.out.println("Moving to day 5.");
                         break; 
                     }
                     else if (stockDay4.equalsIgnoreCase("AAPL")) {
                         sharesAAPL += Shares;
                         cash -= day4cost;
                         System.out.printf("Bought %d shares of AAPL for %.2f.%n", Shares, day4cost);
-                        System.out.println("Moving to day 4.");
+                        System.out.println("Moving to day 5.");
                         break;
                     }
                     else if (stockDay4.equalsIgnoreCase("GOOGL")) {
                         sharesGOOGL += Shares;
                         cash -= day4cost;
                         System.out.printf("Bought %d shares of GOOGL for %.2f.%n", Shares, day4cost);
-                        System.out.println("Moving to day 4.");
+                        System.out.println("Moving to day 5.");
                         break;
                     }
                 }
@@ -741,7 +754,6 @@ public class stockMarket {
                             }
                             else {
                                 System.out.println("INVALID input!!");
-                            
                                 scanner.nextLine();
                             }
                         }
@@ -778,19 +790,17 @@ public class stockMarket {
                             continue;
                         }
                     }
-                    else {
+                    else if (!stockSell4.equalsIgnoreCase("back")) {
                         System.out.println("Enter a valid stock to sell!!");
-                        continue;
                     }
                 }
 
-                // 3. THIS ONE IF STATEMENT FIXES EVERYTHING
+                // got help for this
                 if (!stockSell4.equalsIgnoreCase("back")) {
                     break; 
                 }
 
                 // break; 
-                // THE BREAK BREAKS OUT of THE ENTIRE DAY
             }
             else if (stockChoice4.equalsIgnoreCase("skip")) {
                 System.out.println("\n".repeat(50));
@@ -824,7 +834,7 @@ public class stockMarket {
             System.out.println("THE ENTIRE STOCK MARKET IS DOWN 15%!!");
             System.out.println("\n");
         }
-        else if (randomEventNum <= 0.4 || randomEventNum >= 0.5) {
+        else if (randomEventNum >= 0.4 || randomEventNum <= 0.5) {
             AAPL = AAPL * 1.20;
             NVDA = NVDA * 1.20;
             GOOGL = GOOGL * 1.20;
@@ -895,7 +905,7 @@ public class stockMarket {
                     }
                 }
 
-                // find out the cost of day 1 shares
+                // find out the cost of day 5 shares
                 if (stockDay5.equalsIgnoreCase("NVDA")) {
                     day5cost = NVDA * Shares;
                 }
@@ -911,21 +921,21 @@ public class stockMarket {
                         sharesNVDA += Shares;
                         cash -= day5cost;
                         System.out.printf("Bought %d shares of NVDA for %.2f.%n", Shares, day5cost);
-                        System.out.println("Moving to day 3."); // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip??
+                        System.out.println("Moving to the final results..."); // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip??
                         break; 
                     }
                     else if (stockDay5.equalsIgnoreCase("AAPL")) {
                         sharesAAPL += Shares;
                         cash -= day5cost;
                         System.out.printf("Bought %d shares of AAPL for %.2f.%n", Shares, day5cost);
-                        System.out.println("Moving to day 4."); // // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip??
+                        System.out.println("Moving to the final results..."); // // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip??
                         break;
                     }
                     else if (stockDay5.equalsIgnoreCase("GOOGL")) {
                         sharesGOOGL += Shares;
                         cash -= day5cost;
                         System.out.printf("Bought %d shares of GOOGL for %.2f.%n", Shares, day5cost);
-                        System.out.println("Moving to day 4."); // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip??
+                        System.out.println("Moving to the final results..."); // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip??
                         break;
                     }
                 }
@@ -994,9 +1004,8 @@ public class stockMarket {
                             continue;
                         }
                     }
-                    else {
+                    else if (!stockSell5.equalsIgnoreCase("back")) {
                         System.out.println("Enter a valid stock to sell!!");
-                        continue;
                     }
                 }
 
