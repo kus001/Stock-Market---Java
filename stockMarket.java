@@ -11,10 +11,7 @@ public class stockMarket {
 
         // user variables
         double cash = 1000.0;
-        // stock fluctuations
-        double low = -0.15;
-        double high = 0.15;
-        double randomChange = (double)(Math.random() * (high-low) + low); 
+        // stock fluctuations 
     
         double randomEventNum = Math.random(); // only for CRAZY tragic/good events (day 5)
 
@@ -222,31 +219,40 @@ public class stockMarket {
             // day 2
             String stockDay2 = "";
 
+            // stock fluctuations
+            double low = -0.15;
+            double high = 0.15;
+            double randomChange = (double)(Math.random() * (high-low) + low);
+
+            NVDA = (NVDA * randomChange) + NVDA;
+            AAPL = (AAPL * randomChange) + AAPL;
+            GOOGL = (GOOGL * randomChange) + GOOGL;
+
+            // // main HUD
+            // System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
+            // System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
+            // System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
+            // System.out.println("------------------------------");
+            // System.out.printf("Cash : %.2f%n", cash);
+
+            // System.out.println("\n");
+
+            while (true) {
             System.out.println("==========");
             System.out.println("  DAY 2");
             System.out.println("==========");
             
             System.out.println("\n");
 
-            // // stock fluctuations
-            // double low = -0.15;
-            // double high = 0.15;
-            // double randomChange = (double)(Math.random() * (high-low) + low);
-
-            NVDA = (NVDA * randomChange) + NVDA;
-            AAPL = (AAPL * randomChange) + AAPL;
-            GOOGL = (GOOGL * randomChange) + GOOGL;
-
             // main HUD
-            System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
-            System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
-            System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
+            System.out.printf("NVDA : %.2f (%.2f) | Shares owned : %d%n", NVDA, randomChange*100, sharesNVDA);
+            System.out.printf("AAPL : %.2f (%.2f) | Shares owned : %d%n", AAPL, randomChange*100, sharesAAPL);
+            System.out.printf("GOOGL : %.2f (%.2f) | Shares owned : %d%n", GOOGL, randomChange*100, sharesGOOGL);
             System.out.println("------------------------------");
             System.out.printf("Cash : %.2f%n", cash);
 
             System.out.println("\n");
 
-            while (true) {
             System.out.print("What do you want to do (type buy/sell/skip): ");
             String stockChoice2 = scanner.nextLine();
             String stockBuy2 = "";
@@ -313,21 +319,21 @@ public class stockMarket {
                             sharesNVDA += Shares;
                             cash -= day2cost;
                             System.out.printf("Bought %d shares of NVDA for %.2f.%n", Shares, day2cost);
-                            // System.out.println("Moving to day 3.");
+                            System.out.println("\n".repeat(50));
                             // break;
                         }
                         else if (stockDay2.equalsIgnoreCase("AAPL")) {
                             sharesAAPL += Shares;
                             cash -= day2cost;
                             System.out.printf("Bought %d shares of AAPL for %.2f.%n", Shares, day2cost);
-                            // System.out.println("Moving to day 3.");
+                            System.out.println("\n".repeat(50));
                             // break;
                         }
                         else if (stockDay2.equalsIgnoreCase("GOOGL")) {
                             sharesGOOGL += Shares;
                             cash -= day2cost;
                             System.out.printf("Bought %d shares of GOOGL for %.2f.%n", Shares, day2cost);
-                            // System.out.println("Moving to day 3.");
+                            System.out.println("\n".repeat(50));
                             // break;
                         }
                     }
@@ -370,7 +376,7 @@ public class stockMarket {
                                 sharesNVDA -= shareSell2;
                                 cash += returnValue;
                                 System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
-                                // System.out.println("\n".repeat(50));
+                                System.out.println("\n".repeat(50));
                                 // break;
                             }
                             // sell AAPL
@@ -379,7 +385,7 @@ public class stockMarket {
                                 sharesAAPL -= shareSell2;
                                 cash += returnValue;
                                 System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
-                                // System.out.println("\n".repeat(50));
+                                System.out.println("\n".repeat(50));
                                 // break;
                             }
                             // sell google
@@ -388,7 +394,7 @@ public class stockMarket {
                                 sharesGOOGL -= shareSell2;
                                 cash += returnValue;
                                 System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
-                                // System.out.println("\n".repeat(50));
+                                System.out.println("\n".repeat(50));
                                 // break;
                             }
                             else {
@@ -421,15 +427,11 @@ public class stockMarket {
 
             // day 3
             String stockDay3 = "";
-        
-            System.out.println("==========");
-            System.out.println("  Day 3");
-            System.out.println("==========");
-        
-            System.out.println("\n");
 
             // stock fluctuations
-            // System.out.println(NVDA);
+            low = -0.15;
+            high = 0.15;
+            randomChange = (double)(Math.random() * (high-low) + low);
 
             NVDA = NVDA + (NVDA * randomChange);
             AAPL = AAPL + (AAPL * randomChange);
@@ -454,17 +456,23 @@ public class stockMarket {
                 System.out.println("BUT WHY? I guess people are using a lot of gemini");
                 System.out.println("\n");
             }
-        
-            // main HUD
-            System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
-            System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
-            System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
-            System.out.println("------------------------------");
-            System.out.printf("Cash : %.2f%n", cash);
-        
-            System.out.println("\n");
 
             while (true) {
+                System.out.println("==========");
+                System.out.println("  Day 3");
+                System.out.println("==========");
+        
+                System.out.println("\n");
+
+                // main HUD
+                System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
+                System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
+                System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
+                System.out.println("------------------------------");
+                System.out.printf("Cash : %.2f%n", cash);
+
+                System.out.println("\n");              
+                
                 System.out.print("What do you want to do (type buy/sell/skip): ");
                 String stockChoice3 = scanner.nextLine();
                 String stockBuy3 = "";
@@ -640,27 +648,32 @@ public class stockMarket {
             
         // day 4
         String stockDay4 = "";
-    
-        System.out.println("==========");
-        System.out.println("  Day 4");
-        System.out.println("==========");
-    
-        System.out.println("\n");
+
+        // stock fluctuations
+        double low = -0.15;
+        double high = 0.15;
+        double randomChange = (double)(Math.random() * (high-low) + low);
         
         // add stock fluctuations here
         NVDA = NVDA + (NVDA * randomChange);
         AAPL = AAPL + (AAPL * randomChange);
         GOOGL = GOOGL + (GOOGL * randomChange); 
     
-        // main HUD
-        System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
-        System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
-        System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
-        System.out.println("------------------------------");
-        System.out.printf("Cash : %.2f%n", cash);
-    
         System.out.println("\n");
         while (true) {
+            System.out.println("==========");
+            System.out.println("  Day 4");
+            System.out.println("==========");
+            
+            System.out.println("\n");
+
+            // main HUD
+            System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
+            System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
+            System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
+            System.out.println("------------------------------");
+            System.out.printf("Cash : %.2f%n", cash);
+
             System.out.print("What do you want to do (type buy/sell/skip): ");
             String stockChoice4 = scanner.nextLine();
             String stockBuy4 = "";
@@ -725,21 +738,21 @@ public class stockMarket {
                         sharesNVDA += Shares;
                         cash -= day4cost;
                         System.out.printf("Bought %d shares of NVDA for %.2f.%n", Shares, day4cost);
-                        // System.out.println("Moving to day 5.");
+                        System.out.println("\n".repeat(50));
                         // break; 
                     }
                     else if (stockDay4.equalsIgnoreCase("AAPL")) {
                         sharesAAPL += Shares;
                         cash -= day4cost;
                         System.out.printf("Bought %d shares of AAPL for %.2f.%n", Shares, day4cost);
-                        // System.out.println("Moving to day 5.");
+                        System.out.println("\n".repeat(50));
                         // break;
                     }
                     else if (stockDay4.equalsIgnoreCase("GOOGL")) {
                         sharesGOOGL += Shares;
                         cash -= day4cost;
                         System.out.printf("Bought %d shares of GOOGL for %.2f.%n", Shares, day4cost);
-                        // System.out.println("Moving to day 5.");
+                        System.out.println("\n".repeat(50));
                         // break;
                     }
                 }
@@ -782,7 +795,7 @@ public class stockMarket {
                             sharesNVDA -= shareSell4;
                             cash += returnValue;
                             System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell4, stockSell4, returnValue);
-                            // System.out.println("\n".repeat(50));
+                            System.out.println("\n".repeat(50));
                             // break;
                         }
                         // sell AAPL
@@ -791,7 +804,7 @@ public class stockMarket {
                             sharesAAPL -= shareSell4;
                             cash += returnValue;
                             System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell4, stockSell4, returnValue);
-                            // System.out.println("\n".repeat(50));
+                            System.out.println("\n".repeat(50));
                             // break;
                         }
                         // sell GOOGL
@@ -800,7 +813,7 @@ public class stockMarket {
                             sharesGOOGL -= shareSell4;
                             cash += returnValue;
                             System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell4, stockSell4, returnValue);
-                            // System.out.println("\n".repeat(50));
+                            System.out.println("\n".repeat(50));
                             // break;
                         }
                         else {
@@ -833,13 +846,6 @@ public class stockMarket {
         }
         
         // day 5
-        String stockDay5 = "";
-    
-        System.out.println("==========");
-        System.out.println("  Day 5");
-        System.out.println("==========");
-    
-        System.out.println("\n");
         
         // either tragic or super good event
 
@@ -852,7 +858,7 @@ public class stockMarket {
             System.out.println("THE ENTIRE STOCK MARKET IS DOWN 15%!!");
             System.out.println("\n");
         }
-        else if (randomEventNum >= 0.4 || randomEventNum <= 0.5) {
+        else if (randomEventNum >= 0.4 && randomEventNum <= 0.5) {
             AAPL = AAPL * 1.20;
             NVDA = NVDA * 1.20;
             GOOGL = GOOGL * 1.20;
@@ -868,7 +874,14 @@ public class stockMarket {
             System.out.println("THE ENTIRE STOCK MARKET IS DOWN 10%!!!");
             System.out.println("\n");
         }
+
+        while (true) {
+        String stockDay5 = "";
     
+        System.out.println("==========");
+        System.out.println("  Day 5");
+        System.out.println("==========");
+
         // main HUD
         System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
         System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
@@ -877,7 +890,8 @@ public class stockMarket {
         System.out.printf("Cash : %.2f%n", cash);
     
         System.out.println("\n");
-        while (true) {
+    
+        System.out.println("\n");
             System.out.print("What do you want to do (type buy/sell/skip): ");
             String stockChoice5 = scanner.nextLine();
             String stockBuy5 = "";
@@ -939,21 +953,22 @@ public class stockMarket {
                         sharesNVDA += Shares;
                         cash -= day5cost;
                         System.out.printf("Bought %d shares of NVDA for %.2f.%n", Shares, day5cost);
-                        // System.out.println("Moving to the final results..."); // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip??
+                        System.out.println("\n".repeat(50));
                         // break; 
                     }
                     else if (stockDay5.equalsIgnoreCase("AAPL")) {
                         sharesAAPL += Shares;
                         cash -= day5cost;
                         System.out.printf("Bought %d shares of AAPL for %.2f.%n", Shares, day5cost);
-                        // System.out.println("Moving to the final results..."); // // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip??
+                        System.out.println("\n".repeat(50));
                         // break;
                     }
                     else if (stockDay5.equalsIgnoreCase("GOOGL")) {
                         sharesGOOGL += Shares;
                         cash -= day5cost;
                         System.out.printf("Bought %d shares of GOOGL for %.2f.%n", Shares, day5cost);
-                        // System.out.println("Moving to the final results..."); // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip??
+                        // System.out.println("Moving to the final results..."); // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip?? 
+                        System.out.println("\n".repeat(50));
                         // break;
                     }
                 }
@@ -996,7 +1011,7 @@ public class stockMarket {
                             sharesNVDA -= shareSell5;
                             cash += returnValue;
                             System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell5, stockSell5, returnValue);
-                            // System.out.println("\n".repeat(50));
+                            System.out.println("\n".repeat(50));
                             // break;
                         }
                         // sell AAPL
@@ -1005,7 +1020,7 @@ public class stockMarket {
                             sharesAAPL -= shareSell5;
                             cash += returnValue;
                             System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell5, stockSell5, returnValue);
-                            // System.out.println("\n".repeat(50));
+                            System.out.println("\n".repeat(50));
                             // break;
                         }
                         // sell GOOGL
@@ -1014,7 +1029,7 @@ public class stockMarket {
                             sharesGOOGL -= shareSell5;
                             cash += returnValue;
                             System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell5, stockSell5, returnValue);
-                            // System.out.println("\n".repeat(50));
+                            System.out.println("\n".repeat(50));
                             // break;
                         }
                         else {
