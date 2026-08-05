@@ -219,23 +219,18 @@ public class stockMarket {
             // day 2
             String stockDay2 = "";
 
-            // stock fluctuations
+            // stock fluctuations (fix why are they the same for every stock???)
             double low = -0.15;
             double high = 0.15;
-            double randomChange = (double)(Math.random() * (high-low) + low);
 
-            NVDA = (NVDA * randomChange) + NVDA;
-            AAPL = (AAPL * randomChange) + AAPL;
-            GOOGL = (GOOGL * randomChange) + GOOGL;
+            double randomChangeNVDA = (double)(Math.random() * (high-low) + low);
+            NVDA = (NVDA * randomChangeNVDA) + NVDA;
 
-            // // main HUD
-            // System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
-            // System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
-            // System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
-            // System.out.println("------------------------------");
-            // System.out.printf("Cash : %.2f%n", cash);
+            double randomChangeAAPL = (double)(Math.random() * (high-low) + low);
+            AAPL = (AAPL * randomChangeAAPL) + AAPL;
 
-            // System.out.println("\n");
+            double randomChangeGOOGL = (double)(Math.random() * (high-low) + low);
+            GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;
 
             while (true) {
             System.out.println("==========");
@@ -245,12 +240,11 @@ public class stockMarket {
             System.out.println("\n");
 
             // main HUD
-            System.out.printf("NVDA : %.2f (%.2f) | Shares owned : %d%n", NVDA, randomChange*100, sharesNVDA);
-            System.out.printf("AAPL : %.2f (%.2f) | Shares owned : %d%n", AAPL, randomChange*100, sharesAAPL);
-            System.out.printf("GOOGL : %.2f (%.2f) | Shares owned : %d%n", GOOGL, randomChange*100, sharesGOOGL);
+            System.out.printf("NVDA : %.2f (%s%.2f%%) | Shares owned : %d%n", NVDA, (randomChangeNVDA >= 0 ? "+" : ""), randomChangeNVDA*100, sharesNVDA);
+            System.out.printf("AAPL : %.2f (%s%.2f%%) | Shares owned : %d%n", AAPL, (randomChangeAAPL >= 0 ? "+" : ""), randomChangeAAPL*100, sharesAAPL);
+            System.out.printf("GOOGL : %.2f (%s%.2f%%) | Shares owned : %d%n", GOOGL, (randomChangeGOOGL >= 0 ? "+" : ""), randomChangeGOOGL*100, sharesGOOGL);
             System.out.println("------------------------------");
             System.out.printf("Cash : %.2f%n", cash);
-
             System.out.println("\n");
 
             System.out.print("What do you want to do (type buy/sell/skip): ");
@@ -431,11 +425,15 @@ public class stockMarket {
             // stock fluctuations
             low = -0.15;
             high = 0.15;
-            randomChange = (double)(Math.random() * (high-low) + low);
 
-            NVDA = NVDA + (NVDA * randomChange);
-            AAPL = AAPL + (AAPL * randomChange);
-            GOOGL = GOOGL + (GOOGL * randomChange);
+            randomChangeNVDA = (double)(Math.random() * (high-low) + low);
+            NVDA = (NVDA * randomChangeNVDA) + NVDA;
+
+            randomChangeAAPL = (double)(Math.random() * (high-low) + low);
+            AAPL = (AAPL * randomChangeAAPL) + AAPL;
+
+            randomChangeGOOGL = (double)(Math.random() * (high-low) + low);
+            GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;
 
             // System.out.println("NVDA");
 
@@ -465,13 +463,12 @@ public class stockMarket {
                 System.out.println("\n");
 
                 // main HUD
-                System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
-                System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
-                System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
+                System.out.printf("NVDA : %.2f (%s%.2f%%) | Shares owned : %d%n", NVDA, (randomChangeNVDA >= 0 ? "+" : ""), randomChangeNVDA*100, sharesNVDA);
+                System.out.printf("AAPL : %.2f (%s%.2f%%) | Shares owned : %d%n", AAPL, (randomChangeAAPL >= 0 ? "+" : ""), randomChangeAAPL*100, sharesAAPL);
+                System.out.printf("GOOGL : %.2f (%s%.2f%%) | Shares owned : %d%n", GOOGL, (randomChangeGOOGL >= 0 ? "+" : ""), randomChangeGOOGL*100, sharesGOOGL);
                 System.out.println("------------------------------");
                 System.out.printf("Cash : %.2f%n", cash);
-
-                System.out.println("\n");              
+                System.out.println("\n");
                 
                 System.out.print("What do you want to do (type buy/sell/skip): ");
                 String stockChoice3 = scanner.nextLine();
@@ -649,15 +646,20 @@ public class stockMarket {
         // day 4
         String stockDay4 = "";
 
-        // stock fluctuations
+        // stock fluctuations (fix why are they the same for every stock???)
         double low = -0.15;
         double high = 0.15;
-        double randomChange = (double)(Math.random() * (high-low) + low);
+        double randomChangeNVDA = (double)(Math.random() * (high-low) + low);
+        NVDA = (NVDA * randomChangeNVDA) + NVDA;
+        double randomChangeAAPL = (double)(Math.random() * (high-low) + low);
+        AAPL = (AAPL * randomChangeAAPL) + AAPL;
+        double randomChangeGOOGL = (double)(Math.random() * (high-low) + low);
+        GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;
         
         // add stock fluctuations here
-        NVDA = NVDA + (NVDA * randomChange);
-        AAPL = AAPL + (AAPL * randomChange);
-        GOOGL = GOOGL + (GOOGL * randomChange); 
+        NVDA = NVDA + (NVDA * randomChangeNVDA);
+        AAPL = AAPL + (AAPL * randomChangeAAPL);
+        GOOGL = GOOGL + (GOOGL * randomChangeGOOGL); 
     
         System.out.println("\n");
         while (true) {
@@ -668,11 +670,12 @@ public class stockMarket {
             System.out.println("\n");
 
             // main HUD
-            System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
-            System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
-            System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
+            System.out.printf("NVDA : %.2f (%s%.2f%%) | Shares owned : %d%n", NVDA, (randomChangeNVDA >= 0 ? "+" : ""), randomChangeNVDA*100, sharesNVDA);
+            System.out.printf("AAPL : %.2f (%s%.2f%%) | Shares owned : %d%n", AAPL, (randomChangeAAPL >= 0 ? "+" : ""), randomChangeAAPL*100, sharesAAPL);
+            System.out.printf("GOOGL : %.2f (%s%.2f%%) | Shares owned : %d%n", GOOGL, (randomChangeGOOGL >= 0 ? "+" : ""), randomChangeGOOGL*100, sharesGOOGL);
             System.out.println("------------------------------");
             System.out.printf("Cash : %.2f%n", cash);
+            System.out.println("\n");
 
             System.out.print("What do you want to do (type buy/sell/skip): ");
             String stockChoice4 = scanner.nextLine();
