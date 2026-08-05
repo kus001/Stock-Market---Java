@@ -343,7 +343,6 @@ public class stockMarket {
                                 }
                                 else {
                                     System.out.println("INVALID input!!");
-                                
                                     scanner.nextLine();
                                 }
                             }
@@ -399,7 +398,10 @@ public class stockMarket {
                     System.exit(0);
                 }
                 else {
-                    System.out.println("Enter a valid choice!!");
+                    System.out.println("Invalid input. CMON!!!");
+                    Thread.sleep(500);
+                    System.out.println("\n".repeat(50));
+                    
                 }
             }
 
@@ -418,26 +420,6 @@ public class stockMarket {
 
             randomChangeGOOGL = (double)(Math.random() * (high-low) + low);
             GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;
-
-            // System.out.println("NVDA");
-
-            // make sure the random event works for the new stock of google
-            if (randomEventNum >= 0.67) {
-                NVDA = NVDA * 1.20; // price surge so nvda is 20% up
-                System.out.println("NVDA made too many potato chips so they are up 20%!!");
-                System.out.println("\n");
-            }
-            else if (randomEventNum <= 0.33 || randomEventNum >= 0.66) {
-                AAPL = AAPL * 0.85;
-                System.out.println("AAPL is down 15% coz ..."); 
-                System.out.println("\n");
-            }
-            else {
-                GOOGL = GOOGL * 1.125; // tried to put googl somewhere in the middle of the price surge (somewhere between 0.85 and 1.20)
-                System.out.println("GOOGL is up 15%!?");
-                System.out.println("BUT WHY? I guess people are using a lot of gemini");
-                System.out.println("\n");
-            }
 
             while (true) {
                 System.out.println("==========");
@@ -622,7 +604,9 @@ public class stockMarket {
                     System.exit(0);
                 }
                 else {
-                    System.out.println("Enter a valid choice!!");
+                    System.out.println("Invalid input. CMON!!!");
+                    Thread.sleep(500);
+                    System.out.println("\n".repeat(50));
                 }
             }
         }
@@ -828,7 +812,9 @@ public class stockMarket {
                 System.exit(0);
             }
             else {
-                System.out.println("Enter a valid choice!!");
+                System.out.println("Invalid input. CMON!!!");
+                Thread.sleep(500);
+                System.out.println("\n".repeat(50));
             }
         }
         
@@ -954,22 +940,18 @@ public class stockMarket {
                         cash -= day5cost;
                         System.out.printf("Bought %d shares of NVDA for %.2f.%n", Shares, day5cost);
                         System.out.println("\n".repeat(50));
-                        // break; 
                     }
                     else if (stockDay5.equalsIgnoreCase("AAPL")) {
                         sharesAAPL += Shares;
                         cash -= day5cost;
                         System.out.printf("Bought %d shares of AAPL for %.2f.%n", Shares, day5cost);
                         System.out.println("\n".repeat(50));
-                        // break;
                     }
                     else if (stockDay5.equalsIgnoreCase("GOOGL")) {
                         sharesGOOGL += Shares;
                         cash -= day5cost;
                         System.out.printf("Bought %d shares of GOOGL for %.2f.%n", Shares, day5cost);
-                        // System.out.println("Moving to the final results..."); // maybe change it so that after every action, you go back to the main input and the day ONLY CHANGES when press skip?? 
                         System.out.println("\n".repeat(50));
-                        // break;
                     }
                 }
                 else {
@@ -1055,7 +1037,9 @@ public class stockMarket {
                 System.exit(0);
             }
             else {
-                System.out.println("Enter a valid choice!!");
+                System.out.println("Invalid input. CMON!!!");
+                Thread.sleep(500);
+                System.out.println("\n".repeat(50));
             }
         }
 
