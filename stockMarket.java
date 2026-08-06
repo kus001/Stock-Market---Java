@@ -76,6 +76,8 @@ public class stockMarket {
             // day 1
             String stockDay1 = "";
 
+            System.out.println("\n".repeat(50));
+
             System.out.println("==========");
             System.out.println("  DAY 1");
             System.out.println("==========");
@@ -174,16 +176,20 @@ public class stockMarket {
                             cash -= day1cost;
                             System.out.printf("Bought %d shares of GOOGL for %.2f.%n", Shares, day1cost);
                             System.out.println("\n".repeat(50));
-                            // break;                            
+                            // break;
                         }
                     }
                     else {
-                        System.out.println("Cant afford it.");
+                        System.out.println("Can't afford it.");
+                        Thread.sleep(500);
+                        System.out.println("\n".repeat(50));
                     }
                     
                 } 
                 else if (stockChoice1.equalsIgnoreCase("sell")) {
                         System.out.println("Its the first day, you don't have anything to sell.");
+                        Thread.sleep(500);
+                        System.out.println("\n".repeat(50));
                 }
                 else if (stockChoice1.equalsIgnoreCase("skip")) { 
                         System.out.println("Skipping day 1. Moving to day 2.");
@@ -217,6 +223,8 @@ public class stockMarket {
             GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;
 
             while (true) {
+            System.out.println("\n".repeat(50));
+
             System.out.println("==========");
             System.out.println("  DAY 2");
             System.out.println("==========");
@@ -316,7 +324,9 @@ public class stockMarket {
                         }
                     }
                     else {
-                        System.out.println("Cant afford it.");
+                        System.out.println("Can't afford it.");
+                        Thread.sleep(500);
+                        System.out.println("\n".repeat(50));
                     }
                 } 
 
@@ -343,7 +353,8 @@ public class stockMarket {
                                 }
                                 else {
                                     System.out.println("INVALID input!!");
-                                    scanner.nextLine();
+                                    Thread.sleep(500);
+                                    System.out.println("\n".repeat(50));
                                 }
                             }
 
@@ -353,8 +364,8 @@ public class stockMarket {
                                 sharesNVDA -= shareSell2;
                                 cash += returnValue;
                                 System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
-                                System.out.println("\n".repeat(50));
-                                // break;
+                                Thread.sleep(750);
+                                continue;
                             }
                             // sell AAPL
                             else if (stockSell2.equalsIgnoreCase("AAPL") && shareSell2 > 0 && sharesAAPL >= shareSell2) {
@@ -362,8 +373,8 @@ public class stockMarket {
                                 sharesAAPL -= shareSell2;
                                 cash += returnValue;
                                 System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
-                                System.out.println("\n".repeat(50));
-                                // break;
+                                Thread.sleep(750);
+                                continue;
                             }
                             // sell google
                             else if (stockSell2.equalsIgnoreCase("GOOGL") && shareSell2 > 0 && sharesGOOGL >= shareSell2) {
@@ -372,7 +383,7 @@ public class stockMarket {
                                 cash += returnValue;
                                 System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
                                 System.out.println("\n".repeat(50));
-                                // break;
+                                continue;
                             }
                             else {
                                 System.out.printf("You don't own that many shares of %s%n", stockSell2);
@@ -422,8 +433,10 @@ public class stockMarket {
             GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;
 
             while (true) {
+                System.out.println("\n".repeat(50));
+
                 System.out.println("==========");
-                System.out.println("  Day 3");
+                System.out.println("  DAY 3");
                 System.out.println("==========");
         
                 System.out.println("\n");
@@ -520,7 +533,9 @@ public class stockMarket {
                         }
                     }
                     else {
-                        System.out.println("Cant afford it.");
+                        System.out.println("Can't afford it.");
+                        Thread.sleep(500);
+                        System.out.println("\n".repeat(50));
                     }
             
                 } 
@@ -629,10 +644,11 @@ public class stockMarket {
         AAPL = AAPL + (AAPL * randomChangeAAPL);
         GOOGL = GOOGL + (GOOGL * randomChangeGOOGL); 
     
-        System.out.println("\n");
         while (true) {
+            System.out.println("\n".repeat(50));
+
             System.out.println("==========");
-            System.out.println("  Day 4");
+            System.out.println("  DAY 4");
             System.out.println("==========");
             
             System.out.println("\n");
@@ -728,7 +744,9 @@ public class stockMarket {
                     }
                 }
                 else {
-                    System.out.println("Cant afford it.");
+                    System.out.println("Can't afford it.");
+                    Thread.sleep(500);
+                    System.out.println("\n".repeat(50));
                 }
             }
             
@@ -865,8 +883,10 @@ public class stockMarket {
         while (true) {
         String stockDay5 = "";
     
+        System.out.println("\n".repeat(50));
+
         System.out.println("==========");
-        System.out.println("  Day 5");
+        System.out.println("  DAY 5");
         System.out.println("==========");
 
         // main HUD
@@ -955,7 +975,9 @@ public class stockMarket {
                     }
                 }
                 else {
-                    System.out.println("Cant afford it.");
+                    System.out.println("Can't afford it!!");
+                    Thread.sleep(500);
+                    System.out.println("\n".repeat(50));
                 }
             }
             else if (stockChoice5.equalsIgnoreCase("sell")) {
@@ -1045,34 +1067,16 @@ public class stockMarket {
 
         // final summary of the playerr
         
-        double profitOrLoss = cash + sharesNVDA*NVDA + sharesAAPL*AAPL + sharesGOOGL*GOOGL; 
+        double portfolioValue = sharesNVDA*NVDA + sharesAAPL*AAPL + sharesGOOGL*GOOGL;
+        double assets = cash + portfolioValue;
+        double profitOrLoss = assets - 1000;
 
         System.out.println("Your trading journey comes to an end (for now). ");
         System.out.println("Here are your stats: ");
         
-        if (profitOrLoss > 0) {
-            // double profit = cash - 1000;
-            System.out.printf("Cash : $%.2f | Profit : $%.2f", cash, profitOrLoss);
-            System.out.println("\n");
-            System.out.println("Making profit? Lets gooo!!");
-
-        }
-        else if (profitOrLoss < 0) {
-            double loss = 1000 - cash;
-
-            System.out.printf("Cash : $%.2f | Profit : -$%.2f", cash, loss);
-            System.out.println();
-            System.out.println("Ok, maybe not the outcome you expected but what can we do??");
-            System.out.println("\n");
-            System.out.printf("I think you should play again, %s.%n", name);
-            System.out.println("Maybe, yk see if something changes.");
-        }
-        else {
-            System.out.printf("Cash : $%.2f | Profit : $0", cash);
-            System.out.println("\n");
-            System.out.println("Nothing changed??");
-            System.out.println("Maybe you can change this outcome by playing AGAIN...");
-        }
+        System.out.printf("Total Assets: | Cash : $%.2f | Portfolio Value : $%.2f | Profit : $%.2f", assets, cash, portfolioValue, profitOrLoss);
+        System.out.println("\n");
+        System.out.printf("NVDA : %d shares | AAPL : %d shares | GOOGL : %d shares", sharesNVDA, sharesAAPL, sharesGOOGL);
 
         System.out.print("\n".repeat(2));
         System.out.printf("Thanks for playing %s", name);
