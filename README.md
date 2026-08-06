@@ -14,23 +14,21 @@ Here is a sample run for this game. On windows, running this project only requir
 
 This is the first section, the introduction. Just follow the instructions...
 
-![Enter your name + introduction](image-3.png)
+![Enter your name + introduction](images/image-3.png)
 
 After this, you have the first day, where you can trade stocks and all that good stuff. Whenever you feel satisfied with your decisions that day, type `skip` to move onto the next day.
 
-![Day 1 example play through](image-4.png)
+![Day 1 example play through](images/image-4.png)
 
 This is the same for all the days. 
 
 After day 5, your trading journey comes to an end and you get to see your accomplishments (or dissapointments) during your time trading.
 
-![Summary table](image-5.png)
+![Summary table](images/image-5.png)
 
 ## What it does
 
-## What it does
-
-Basically, you get $1,000 to start with and 5 days to make as much profit as you can. Every day, stock prices for NVDA, AAPL, and GOOGL jump up or down randomly. You get to decide whether you want to buy shares, sell what you already own to secure your $$$, or just skip to the next day and see what the market does. 
+Basically, you get 1000 dollars to start with and 5 days to make as much profit as you can. Every day, stock prices for NVDA, AAPL, and GOOGL jump up or down randomly. You get to decide whether you want to buy shares, sell what you already own to secure your money, or just skip to the next day and see what the market does. 
 
 It tracks your portfolio in real-time on a dynamic HUD, and at the end of Day 5, it tallies up all your remaining shares and cash to show your total profit or loss.
 
@@ -43,6 +41,8 @@ The biggest headache was definitely controlling the console flow and managing ne
 Sorting out `break` vs. `continue`, fixing input validation with `Scanner` (handling non-integer inputs so the program wouldn't crash), and figuring out how to clear the HUD using took a lot of trial and error. But slowly seeing my first Java project actually take shape was pretty cool.
 
 After learning more Java for some time, I will a 100% be coming back and improving this project for sure.
+
+### Run dev
 
 ## Resources that were very helpful
 
