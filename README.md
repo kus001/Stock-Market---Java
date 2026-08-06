@@ -44,6 +44,15 @@ After learning more Java for some time, I will a 100% be coming back and improvi
 
 ### Run dev
 
+Clone the repo:
+`git clone https://github.com/kus001/Stock-Market---Java`
+
+Compile the Java file in the terminal:
+`javac stockMarket.java`
+
+Run it:
+`java stockMarket`
+
 ## Resources that were very helpful
 
 - https://github.com/MissStrong/ICS4U/tree/main/Unit%202
