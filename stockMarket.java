@@ -398,7 +398,8 @@ public class stockMarket {
 
                 else if (stockChoice2.equalsIgnoreCase("sell")) {
                     String stockSell2 = "";
-                    while (true) {
+                    int num = 1;
+                    while (num == 1) {
                         System.out.print("What stock do you want to sell: ");
                         stockSell2 = scanner.nextLine();
                         
@@ -422,6 +423,7 @@ public class stockMarket {
                                     Thread.sleep(500);
                                     System.out.println("\n".repeat(50));
                                 }
+                                break;
                             }
 
                             // sell NVDA
@@ -431,6 +433,7 @@ public class stockMarket {
                                 cash += returnValue;
                                 System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
                                 Thread.sleep(750);
+                                num = 0;
                                 continue;
                             }
                             // sell AAPL
@@ -440,6 +443,7 @@ public class stockMarket {
                                 cash += returnValue;
                                 System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
                                 Thread.sleep(750);
+                                num = 0;
                                 continue;
                             }
                             // sell google
@@ -449,6 +453,7 @@ public class stockMarket {
                                 cash += returnValue;
                                 System.out.printf("Sold %d shares of %s for %.2f!%n", shareSell2, stockSell2, returnValue);
                                 System.out.println("\n".repeat(50));
+                                num = 0;
                                 continue;
                             }
                             else {
