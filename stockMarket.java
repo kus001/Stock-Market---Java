@@ -85,7 +85,7 @@ public class stockMarket {
             System.out.println("\n");
                 
             // main HUD
-            System.out.printf("NVDA : %.2f | Shares onwed : %d%n", NVDA, sharesNVDA);
+            System.out.printf("NVDA : %.2f | Shares owned : %d%n", NVDA, sharesNVDA);
             System.out.printf("AAPL : %.2f | Shares owned : %d%n", AAPL, sharesAAPL);
             System.out.printf("GOOGL : %.2f | Shares owned : %d%n", GOOGL, sharesGOOGL);
             System.out.println("-------------------------------");
@@ -101,7 +101,7 @@ public class stockMarket {
 
             if (stockChoice1.equalsIgnoreCase("buy")) {
                 while (true) {
-                        System.out.println("What stock do you want to buy: ");
+                        System.out.print("What stock do you want to buy: ");
                         stockBuy1 = scanner.nextLine();
 
                         if (stockBuy1.equalsIgnoreCase("back")) {
@@ -137,9 +137,15 @@ public class stockMarket {
                                 break;
                             }
                         }
+                        
                         else {
-                            System.out.println("INVALID input!!");
+                            String input = scanner.nextLine();
 
+                            if (input.equalsIgnoreCase("back")) {
+                                break;
+                            }
+
+                            System.out.println("INVALID input!!");
                             scanner.nextLine();
                         }
                     }
@@ -333,7 +339,7 @@ public class stockMarket {
                 else if (stockChoice2.equalsIgnoreCase("sell")) {
                     String stockSell2 = "";
                     while (true) {
-                        System.out.println("What stock do you want to sell: ");
+                        System.out.print("What stock do you want to sell: ");
                         stockSell2 = scanner.nextLine();
                         
                         if (stockSell2.equalsIgnoreCase("back")) {
@@ -543,7 +549,7 @@ public class stockMarket {
 
                     String stockSell3 = "";
                     while (true) {
-                        System.out.println("What stock do you want to sell: ");
+                        System.out.print("What stock do you want to sell: ");
                         stockSell3 = scanner.nextLine();
                         
                         if (stockSell3.equalsIgnoreCase("back")) {
@@ -632,17 +638,13 @@ public class stockMarket {
         // stock fluctuations (fix why are they the same for every stock???)
         double low = -0.15;
         double high = 0.15;
+
         double randomChangeNVDA = (double)(Math.random() * (high-low) + low);
         NVDA = (NVDA * randomChangeNVDA) + NVDA;
         double randomChangeAAPL = (double)(Math.random() * (high-low) + low);
         AAPL = (AAPL * randomChangeAAPL) + AAPL;
         double randomChangeGOOGL = (double)(Math.random() * (high-low) + low);
         GOOGL = (GOOGL * randomChangeGOOGL) + GOOGL;
-        
-        // add stock fluctuations here
-        NVDA = NVDA + (NVDA * randomChangeNVDA);
-        AAPL = AAPL + (AAPL * randomChangeAAPL);
-        GOOGL = GOOGL + (GOOGL * randomChangeGOOGL); 
     
         while (true) {
             System.out.println("\n".repeat(50));
@@ -754,7 +756,7 @@ public class stockMarket {
                 String stockSell4 = ""; // got help for this part, couldnt figure out how to implement the 'back'ing out feature
 
                 while (true) {
-                    System.out.println("What stock do you want to sell: ");
+                    System.out.print("What stock do you want to sell: ");
                     stockSell4 = scanner.nextLine();
                     
                     if (stockSell4.equalsIgnoreCase("back")) {
@@ -983,7 +985,7 @@ public class stockMarket {
             else if (stockChoice5.equalsIgnoreCase("sell")) {
                 String stockSell5 = "";
                 while (true) {
-                    System.out.println("What stock do you want to sell: ");
+                    System.out.print("What stock do you want to sell: ");
                     stockSell5 = scanner.nextLine();
                     
                     if (stockSell5.equalsIgnoreCase("back")) {
@@ -1074,7 +1076,7 @@ public class stockMarket {
         System.out.println("Your trading journey comes to an end (for now). ");
         System.out.println("Here are your stats: ");
         
-        System.out.printf("Total Assets: | Cash : $%.2f | Portfolio Value : $%.2f | Profit : $%.2f", assets, cash, portfolioValue, profitOrLoss);
+        System.out.printf("Total Assets: $%.2f | Cash : $%.2f | Portfolio Value : $%.2f | Profit : $%.2f", assets, cash, portfolioValue, profitOrLoss);
         System.out.println("\n");
         System.out.printf("NVDA : %d shares | AAPL : %d shares | GOOGL : %d shares", sharesNVDA, sharesAAPL, sharesGOOGL);
 
