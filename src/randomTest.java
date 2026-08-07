@@ -1,3 +1,4 @@
+package src;
 public class randomTest {
     public static void main(String[] args) throws InterruptedException {
 
